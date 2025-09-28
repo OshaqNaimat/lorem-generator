@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { data } from './Data'
 
 const Lorem = () => {
 
@@ -6,7 +7,8 @@ const Lorem = () => {
     const [lorem,setLorem] = useState([])
 const generate = (e)=>{
     e.preventDefault()
-
+     let sliceData= data.slice(0,number)    
+     setLorem(sliceData)
 }
 
   return (
@@ -14,9 +16,15 @@ const generate = (e)=>{
     <div className="">
         <h1>Lorem generator</h1>
         <form action="">
-            <input value={number} onClick={()=>setNumber(e.target.value)} type="text" placeholder='e.g 3'  />
+            <input value={number} onChange={(e)=>setNumber(e.target.value)} type="text" placeholder='e.g 3'  />
             <button>Generate</button>
         </form>
+    </div>
+
+    <div className="">
+        {lorem.map((item,index)=>{
+            return <p> {item} </p>
+        })}
     </div>
     </>
   )
