@@ -5,27 +5,28 @@ const Lorem = () => {
 
     const [number,setNumber] = useState('')
     const [lorem,setLorem] = useState([])
+    
 const generate = (e)=>{
     e.preventDefault()
       
 
-     
+    
 
-//      if(number > data.length){
-//          let moredata = []
-//          for (let i=0;i<number;i++){
+   if (number > data.length) {
+  let moredata = []
+  for (let i = 0; i < number; i++) {
+    let random = Math.floor(Math.random() * data.length) // random each time
+    moredata.push(data[random])
+  }
+  setLorem(moredata)
+} else {
+  let sliceData = data.slice(0, number)
+  setLorem(sliceData)
+}
 
-//              moredata.push(data[0])
-//             }
-
-//             setLorem(moredata)
-//      }else{
-//          let sliceData= data.slice(0,number)    
-//      setLorem(sliceData)
-//      }
 
 
-//      setNumber('')
+     setNumber('')
 }
 
   return (
