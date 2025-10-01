@@ -7,23 +7,40 @@ const Lorem = () => {
     const [lorem,setLorem] = useState([])
 const generate = (e)=>{
     e.preventDefault()
-     let sliceData= data.slice(0,number)    
-     setLorem(sliceData)
+      
+
+     
+
+//      if(number > data.length){
+//          let moredata = []
+//          for (let i=0;i<number;i++){
+
+//              moredata.push(data[0])
+//             }
+
+//             setLorem(moredata)
+//      }else{
+//          let sliceData= data.slice(0,number)    
+//      setLorem(sliceData)
+//      }
+
+
+//      setNumber('')
 }
 
   return (
     <>
-    <div className="">
-        <h1>Lorem generator</h1>
+    <div className="container mx-auto rounded-md shadow-lg my-5 p-3 shadow-black w-[90%] select-none md:w-1/2 lg:md-1/3">
+        <h1 className='text-center text-2xl font-semibold'>Lorem generator</h1>
         <form action="">
-            <input value={number} onChange={(e)=>setNumber(e.target.value)} type="text" placeholder='e.g 3'  />
-            <button>Generate</button>
+            <input className='w-full border rounded-md outline-0 p-1 ' value={number} onChange={(e)=>setNumber(e.target.value)} type="text" placeholder='e.g 3'  />
+            <button  onClick={generate} className='text-center bg-blue-500 rounded-md p-3 w-full text-white my-3'>Generate</button>
         </form>
     </div>
 
-    <div className="">
+    <div className="container grid grid-cols-2 gap-5">
         {lorem.map((item,index)=>{
-            return <p> {item} </p>
+            return <p className='text-justify text-gray-500'> {item} </p>
         })}
     </div>
     </>
